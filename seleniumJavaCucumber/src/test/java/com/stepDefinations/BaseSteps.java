@@ -1,4 +1,4 @@
-package com.stepDefination;
+package com.stepDefinations;
 
 import java.time.Duration;
 
@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
+import com.pages.LoginPage;
 import com.utility.ConfigReader;
 
 import io.cucumber.java.After;
@@ -14,8 +15,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseSteps {
 	ConfigReader cr = new ConfigReader();
-	WebDriver driver;
-	
+	public static WebDriver driver;
+
 	@Before
 	public void beforeScenario() {
 		System.out.println("This will run before each scenario");
@@ -35,13 +36,21 @@ public class BaseSteps {
 
 	}
 
+	@Before(value = "@auth")
+	public void beforeScenario1() {
+		LoginPage loginPage = new LoginPage(driver);
+		System.out.println("This will run before @auth tag scenario");
+		loginPage.enterUserNamePassword("Admin", "admin123");
+		loginPage.login();
+	}
+
 	@After
 	public void afterScenario() {
 		System.out.println("This will run after each scenario");
 		driver.quit();
 	}
-	
-	  public WebDriver getDriver() {
-	        return driver;
-	    }
+
+	public WebDriver getDriver() {
+		return driver;
+	}
 }

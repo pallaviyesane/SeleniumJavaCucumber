@@ -1,4 +1,4 @@
-package com.stepDefination;
+package com.stepDefinations;
 
 import static org.junit.Assert.assertEquals;
 
