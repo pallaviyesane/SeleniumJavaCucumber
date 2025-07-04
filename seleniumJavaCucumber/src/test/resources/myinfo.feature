@@ -38,7 +38,7 @@ Given
 When
 Then
 
-@regression @auth @pref
+@regression @pref
 Scenario: Test Scenario for tags regression auth pref
 Given
 When

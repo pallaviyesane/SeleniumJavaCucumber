@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 				 glue = { "com.stepDefinations" }, 
 				 plugin = { "pretty",
 		"html:target/htmlreport.html" },
-				 tags = "@auth and @regression and not @pref")
+				 tags = "@nonauth or @auth and not @regression")
 
 public class TestRunnerTestNg extends AbstractTestNGCucumberTests{
 

@@ -1,6 +1,8 @@
 package com.stepDefinations;
 
-import static org.junit.Assert.assertEquals;
+import static org.testng.Assert.assertEquals;
+
+import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 
@@ -28,14 +30,20 @@ public class LoginSteps{
 		System.out.println("user");
 	}
 
-	@When("I entered valid Username and Password")
-	public void i_entered_valid_username_and_password() {
+//	@When("I entered valid Username and Password")
+//	public void i_entered_valid_username_and_password() {
+//		loginPage.enterUserNamePassword("Admin", "admin123");
+//	}
+	
+	@When("I entered valid {string} and {string}")
+	public void i_entered_valid_username_and_password(String username, String password) {
 		loginPage.enterUserNamePassword("Admin", "admin123");
 	}
 
 	@When("I click on submit button")
 	public void i_click_on_submit_button() {
 		loginPage.login();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 	}
 
 	@Then("I should navigate to login page")

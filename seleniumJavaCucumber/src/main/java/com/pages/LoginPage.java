@@ -11,7 +11,7 @@ import com.utility.ConfigReader;
 
 public class LoginPage {
 	ConfigReader cr = new ConfigReader();
-	private final WebDriver driver;
+	WebDriver driver;
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
